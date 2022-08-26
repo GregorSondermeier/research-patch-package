@@ -20,5 +20,5 @@ const getNumberInfo = (num: number): string => {
     return `The number ${num} is even`;
   }
 
-  return `${num} is neither odd nor even. Really?`;
+  return `The number ${num} is neither odd nor even. Really?`;
 };
