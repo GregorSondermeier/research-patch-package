@@ -1,11 +1,55 @@
-# Research Package
+# Research patch-package
 
-Researching and assessing if
+Researching and evaluating if
 [patch-package](https://www.npmjs.com/package/patch-package)
-is a reasonable tool to use.
+is a feasible tool to use.
 
 This project was initialized with
 [Typescript Webpack Boilerplate](https://github.com/VD39/typescript-webpack-boilerplate).
+
+## The results
+
+| Pros                                                                                                                           | Cons                                                                                                                                                                                                     |
+|--------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Enables quick modification or configuration change of an npm library which might not offer an API or something similar itself. | Deep knowledge of the respective library is required                                                                                                                                                     |
+|                                                                                                                                | Patch files are difficult to read                                                                                                                                                                        |
+|                                                                                                                                | Working within the _node_modules_ folder is cumbersome                                                                                                                                                   |
+|                                                                                                                                | Complex libraries => complex patches                                                                                                                                                                     |
+|                                                                                                                                | When updating a patched library there is no warranty that the patches continue to work as intended. The target files could have a changed structure so that the patches cannot be applied automatically. |
+|                                                                                                                                | Transitive dependencies increase complexity yet again                                                                                                                                                    |
+|                                                                                                                                | Repo has many open issues and unmerged PRs                                                                                                                                                               |
+|                                                                                                                                | Anti Pattern                                                                                                                                                                                             |
+
+Also, from [patch-package's readme](https://github.com/ds300/patch-package#isnt-this-dangerous):
+
+> **Isn't this dangerous?**
+> 
+> Nope. The technique is quite robust. Here are some things to keep in mind though:  
+> * It's easy to forget to run yarn or npm when switching between branches that do and don't have patch files.
+> * Long lived patches can be costly to maintain if they affect an area of code that is updated regularly and you want to update the package regularly too.
+> * Big semantic changes can be hard to review. Keep them small and obvious or add plenty of comments.
+> * Changes can also impact the behaviour of other untouched packages. It's normally obvious when this will happen, and often desired, but be careful nonetheless.
+
+### So should you use it?
+
+For smaller DIY-type projects when you want to try things and do no harm, sure
+go ahead.
+
+If you're working on a complex project which involves many contributors, has
+many and complex dependencies and which is used in production, I'd say no.  
+The drawbacks clearly outweigh the benefits.  
+For every dependency upgrade you do (be it major, minor or patch), chances are
+your patches are not working anymore. Cumbersume manual labour would be
+required to make the patches work again.
+
+If you need a library to change its implementation, it's better to create an
+issue (maybe already a PR) on that library's GitHub page and contribute to a
+sustainable solution instead of a dirty quick fix.
+
+If your requirements differ too much from what the library offers, it's better
+to look for a different library or create one yourself.
+
+----
 
 ## Typescript Webpack Boilerplate
 
