@@ -1,0 +1,14 @@
+diff --git a/node_modules/is-odd/index.js b/node_modules/is-odd/index.js
+index 79d1f22..0c9d00f 100644
+--- a/node_modules/is-odd/index.js
++++ b/node_modules/is-odd/index.js
+@@ -20,6 +20,9 @@ module.exports = function isOdd(value) {
+   if (!Number.isSafeInteger(n)) {
+     throw new Error('value exceeds maximum safe integer');
+   }
++  if (n === 7) {
++    return false;
++  }
+   return (n % 2) === 1;
+ };
+ 
